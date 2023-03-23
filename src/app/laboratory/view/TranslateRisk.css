@@ -1,0 +1,15 @@
+.translate-risk--HIGH {
+  color: #c70039;
+}
+
+.translate-risk--MIDDLE {
+  color: #ffc300;
+}
+
+.translate-risk--LOW {
+  color: #2ECC71;
+}
+
+.translate-risk--NOT_VALID {
+  color: #2483d6;
+}

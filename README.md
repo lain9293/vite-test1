@@ -1,37 +1,34 @@
-# Vite + React + Typescript + Eslint + Prettier
+# Primeros pasos
 
-A starter for React with Typescript with the fast Vite and all static code testing with Eslint and formatting with Prettier.
+Para ejecutar el proyecto en su maquina:
 
-![Vite + React + Typescript + Eslint + Prettier](/resources/screenshot.png)
+- Revise las versiones de node (> v12) y npm (yo use las versiones: **v16.15.1** para **node** y **v8.11.0** para **npm**)
+- Instale las dependencias del proyecto con el comando: `npm i`
+- Para iniciar el servidor de desarrollo ejecute el comando: `npm run dev` e ingrese desde un navegador a la url `http://localhost:3000/`
+- Para ejecutar las pruebas unitarias ejecute el comando: `npm run test`
+- Para generar el reporte de cobertura de codigo ejecute el comando: `npm run coverage`, el reporte quedara en la ruta `laboratory\coverage\lcov-report`
 
-I found out about Vite and I wanted to have a boilerplate for the technologies that I use. You can find more about these in the following links: [Vite](https://github.com/vitejs/vite), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/), [Eslint](https://eslint.org/), [Prettier](https://prettier.io/).
+## Uso de la Aplicación
 
-## Installation
+Al ingresar a la url `http://localhost:3000/`
 
-Clone the repo and run `yarn install`
+- Se va a visualizar un formulario `Tomar muestra de sangre`, una tabla `Filtrar muestras de sangre realizadas` y `4 fotos` de perros.
 
-or Run command
+Cuando se diligencien los campos del formulario y se presione el botón `Validar muestra de sangre`, se agrega la muestra de sangre en una nueva fila de la tabla.
+Si se ingresa un porcentaje invalido, por ejemplo 130, se mostrara un mensaje de error debajo del botón `Validar muestra de sangre`.
 
-```
-npx degit TheSwordBreaker/vite-reactts-eslint-prettier project-name
-```
+En la tabla se pueden filtrar las muestras de sangre diligenciando el campo `Filtrar por número de identificación`. No hay botón para limpiar los resultados de la busqueda, para visualizar todas las muestras de sangre, se debe ingresar una muestra nueva.
 
-## Start
+Las `4 fotos` de perros son aleatorias, para visualizar nuevas imagenes se tiene que recargar la pagina.
 
-After the successfull installation of the packages: `yarn dev`
+## Para tener en cuenta
 
-## Steps in Vscode
-
-#### (works with better with this template)
-
-1. Install Eslint and prettier extension for vs code.
-2. Make Sure Both are enabled
-3. Make sure all packages are Installed. (Mostly Eslint and prettier in node_modules)
-4. Enable formatOnSave of vs code
-5. Open a .tsx file and check if the bottom right corners of vs code have Eslint and Prettier with a double tick
-
-![Screenshot (253)_LI](https://user-images.githubusercontent.com/52120562/162486286-7383a737-d555-4f9b-a4dd-c4a81deb7b96.jpg)
-
-If Everything is Good Then It Should Work, but let me new if something else happens
-
-Made with ❤️ by theSwordBreaker(we Destory all types of sword ⚡)
+- Revisar los archivos Disease.ts, DiseaseExample.ts, DiseaseValidatorService.ts, en estos se implemento la solucion al problema (se calcula el nivel de riesgo para un paciente).
+- Se uso **React v17** porque la version 18 es muy reciente, por lo tanto, en la mayoria de entornos productivos se usa la v17
+- Se uso **CSS** para estilizar la aplicacion pero sé trabajar con **SASS**
+- Se uso **react-testing-library** para probar los componentes pero también sé trabajar con **Enzyme**
+- En la carpeta `laboratory` se uso **arquitectura limpia**, buscando dividir la solucion en varias capas con responsabilidades bien definidas, por ejemplo:
+capa domain para modelar el problema a solucionar, capa casos de uso donde se definen las reglas de negocio, capa controller como intermediario entre los casos de usos y la interface (vista)
+- Se uso **redux** como gestor del estado de la aplicacion, mediante **redux-toolkit**, pero también sé usar redux sin **redux-toolkit**
+- Se uso **axios** para el consumo de la api que retorna 4 fotos de perros.
+- Solo se realizaron 3 pruebas, se probo un componente con dependencias: BloodTest.test.tsx, se probo un componente sin dependencias: Card.test.tsx y se probo una utilidad: ValidateInput.test.ts, por cuestiones de tiempo pero se demuestra capacidad para probar componentes y cualquier otro archivo que se use en la aplicación (con y sin dependencias).

@@ -1,0 +1,9 @@
+.card {
+  border: 1px solid #badcf6;
+  border-radius: 0.5rem;
+  padding: 16px;
+}
+
+.card__subheading {
+  margin-bottom: 24px;
+}
